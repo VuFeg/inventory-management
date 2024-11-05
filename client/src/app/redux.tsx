@@ -6,8 +6,8 @@ import {
   useSelector,
   Provider,
 } from "react-redux";
-import globalReducer from "@/src/state";
-import { api } from "@/src/state/api";
+import globalReducer from "@/state";
+import { api } from "@/state/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import {
@@ -26,13 +26,13 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 /* REDUX PERSISTENCE */
 const createNoopStorage = () => {
   return {
-    getItem(_key: any) {
+    getItem() {
       return Promise.resolve(null);
     },
-    setItem(_key: any, value: any) {
+    setItem(value: string) {
       return Promise.resolve(value);
     },
-    removeItem(_key: any) {
+    removeItem() {
       return Promise.resolve();
     },
   };
